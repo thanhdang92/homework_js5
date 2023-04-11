@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <form id="form-students">
+        <div class="form-group">
+          <label for="id">ID:</label>
+          <div class="wrap-input">
+            <input type="text" id="id" name="id">
+            <span class="errorMessage"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <div class="wrap-input">
+            <input type="text" id="name" name="name">
+            <span class="errorMessage"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="birthday">Birthday:</label>
+          <div class="wrap-input">
+            <input type="date" id="birthday" name="birthday">
+            <span class="errorMessage"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number:</label>
+          <div class="wrap-input">
+            <input type="tel" id="phoneNumber" name="phoneNumber" minlength="10" maxlength="10">
+            <span class="errorMessage"></span>
+          </div>
+        </div>
+          <div id="submit">
+            <input type="submit" value="Submit">
+          </div>
+          
+        
+      </form>
+
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>      
+
+      <script src="./main.js"></script>
+
+      <script>
+        Validator({
+          selector : '#form-students',
+          error: '.errorMessage',
+          rules: [
+            Validator.isRequired('#id'),
+            Validator.isName('#name'),
+            Validator.isBirthday('#birthday'),
+            Validator.isPhoneNumber('#phoneNumber'),
+          ]
+        }) 
+
+      </script>
+
+     
+</body>
+</html>
